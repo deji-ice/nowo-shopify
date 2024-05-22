@@ -13,21 +13,15 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
-      <div className="block flex-none md:hidden">
+    <nav className="fixed flex w-screen items-center justify-between bg-[#878346] p-4 lg:px-6">
+      <div className="block flex-none ">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
         </Suspense>
       </div>
       <div className="flex w-full items-center">
-        <div className="flex w-full md:w-1/3">
-          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-            <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div>
-          </Link>
-          {menu.length ? (
+        <div className="flex w-full items-center md:w-1/3">
+          {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
               {menu.map((item: Menu) => (
                 <li key={item.title}>
@@ -40,7 +34,21 @@ export default async function Navbar() {
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : null} */}
+          <div>
+            <Link
+              href="/collections"
+              className="hidden items-center text-sm font-medium uppercase md:flex"
+            >
+              <span className="mr-2">Collections</span>
+            </Link>
+          </div>
+          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
+            <LogoSquare />
+            {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+              {SITE_NAME}
+            </div> */}
+          </Link>
         </div>
         <div className="hidden justify-center md:flex md:w-1/3">
           <Suspense fallback={<SearchSkeleton />}>
