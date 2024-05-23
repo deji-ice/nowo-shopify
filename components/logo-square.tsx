@@ -23,6 +23,7 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
         width={200}
         height={200}
         alt="logo"
+        className="w-28"
         src={'https://res.cloudinary.com/dhvwthnzq/image/upload/v1715410811/nowo/Nowo_1_q7jtan.png'}
       />
     </div>
