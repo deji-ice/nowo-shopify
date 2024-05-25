@@ -13,7 +13,7 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="fixed z-40 flex w-screen items-center justify-between bg-[#878346] p-4 lg:px-6">
+    <nav className="fixed z-40 flex w-screen items-center justify-between bg-[#878346] p-4 text-white lg:px-6">
       <div className="block flex-none ">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
