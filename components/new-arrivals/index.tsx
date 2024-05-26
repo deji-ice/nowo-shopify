@@ -18,8 +18,11 @@ const NewArrivals = async () => {
               width={200}
               alt={product.description}
             />
-            <p>{product.title}</p>
-          </div> // Display the product name
+            <div className="flex w-full items-center justify-between px-2 text-sm">
+              <p>{product.title}</p>{' '}
+              <p className="font-semibold">₦{product.priceRange.maxVariantPrice.amount}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
