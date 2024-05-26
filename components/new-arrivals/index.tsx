@@ -8,10 +8,11 @@ const NewArrivals = async () => {
   return (
     <div className="mt-20 flex h-screen flex-col items-center gap-8 p-10">
       <h2 className="text-2xl font-semibold uppercase">New Arrivals</h2>
-      <div className="flex  gap-7 *:flex *:h-80 *:w-52 *:flex-col *:items-center *:justify-center  *:border *:border-slate-700  ">
+      <div className="flex  gap-7  *:h-80 *:w-52  *:border *:border-slate-700  ">
         {latestProducts.map((product) => (
-          <div className="justify-between p-5" key={product.id}>
+          <div className="flex  flex-col items-start justify-between gap-4 " key={product.id}>
             <Image
+              className="h-full"
               src={product.featuredImage?.url}
               height={400}
               width={200}
