@@ -14,11 +14,19 @@ module.exports = {
       },
       {
         protocol: 'https',
+        hostname: 'video.asos-media.com'
+      },
+      {
+        protocol: 'https',
         hostname: 'res.cloudinary.com'
       },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com'
       }
     ]
   },
