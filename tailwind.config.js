@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
-        monts: ['var(--font-montserrat)']
+        inter: ['var(--font-inter)']
       },
       keyframes: {
         fadeIn: {
