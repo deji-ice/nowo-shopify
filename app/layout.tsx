@@ -1,6 +1,6 @@
 import Navbar from 'components/layout/navbar';
 // import { GeistSans } from 'geist/font/sans';
-import { Montserrat } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode } from 'react';
@@ -34,15 +34,15 @@ export const metadata = {
     })
 };
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
   // this will be the css variable
   display: 'swap',
-  variable: '--font-montserrat'
+  variable: '--font-inter'
 });
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} font-monts`}>
+    <html lang="en" className={`${inter.variable} font-inter`}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <Navbar />
         <main>{children}</main>
