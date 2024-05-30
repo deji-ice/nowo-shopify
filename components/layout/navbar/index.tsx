@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 const { SITE_NAME } = process.env;
+import { IoSearchOutline } from 'react-icons/io5';
 
 export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
@@ -57,7 +58,13 @@ export default async function Navbar() {
             <Search />
           </Suspense>
         </div> */}
-        <div className="flex justify-end md:w-1/3">
+        <div className="flex items-center  justify-end md:w-1/3 ">
+          <div className="hidden justify-end md:flex md:w-full">
+            <Suspense fallback={<SearchSkeleton />}>
+              <Search />
+            </Suspense>
+          </div>
+
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>
