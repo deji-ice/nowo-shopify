@@ -1,3 +1,4 @@
+import BestSellers from 'components/best-sellers';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
@@ -16,6 +17,7 @@ export default async function HomePage() {
     <>
       <MainImage />
       <NewArrivals />
+      <BestSellers />
       <ThreeItemGrid />
       <Carousel />
       <Footer />
