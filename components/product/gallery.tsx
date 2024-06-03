@@ -28,7 +28,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
 
   return (
     <>
-      <div className="relative top-20 aspect-square h-full max-h-[550px] w-full overflow-hidden">
+      <div className="relative top-20 aspect-square h-full max-h-[550px] w-full overflow-hidden bg-black">
         {images[imageIndex] && (
           <Image
             className="h-full w-full object-contain"
@@ -66,7 +66,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
       </div>
 
       {images.length > 1 ? (
-        <ul className="my-12 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
+        <ul className="my-12 flex items-center justify-center gap-2 overflow-auto bg-purple-900 py-1 lg:mb-0">
           {images.map((image, index) => {
             const isActive = index === imageIndex;
             const imageSearchParams = new URLSearchParams(searchParams.toString());
