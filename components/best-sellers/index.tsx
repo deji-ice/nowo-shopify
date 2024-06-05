@@ -43,7 +43,7 @@ const BestSellers = async () => {
                 alt={product.description}
               /> */}
             <div className="flex w-full flex-col items-start justify-start gap-2 text-xs uppercase">
-              <p className="font-medium ">mm,mnjk{product.title}</p>
+              <p className="font-medium ">{product.title}</p>
               <p className="font-light text-gray-700">
                 ₦{product.priceRange.maxVariantPrice.amount}
               </p>
