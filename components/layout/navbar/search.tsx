@@ -62,7 +62,7 @@ export default function Search() {
             />
           </svg>
         ) : (
-          <MagnifyingGlassIcon className="h-4 cursor-pointer text-white" />
+          <MagnifyingGlassIcon className="h-5 cursor-pointer text-white" />
         )}
       </div>
     </div>
