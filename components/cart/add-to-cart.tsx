@@ -1,6 +1,6 @@
 'use client';
 
-import { PlusIcon } from '@heroicons/react/24/outline';
+import { HeartIcon, PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -17,7 +17,7 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
+    'relative flex w-full items-center justify-center bg-[#000000] py-3 px-5 tracking-wide text-sm text-white';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -30,36 +30,46 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <button
-        aria-label="Please select an option"
-        aria-disabled
-        className={clsx(buttonClasses, disabledClasses)}
-      >
-        <div className="absolute left-0 ml-4">
+      <>
+        <button
+          aria-label="Please select an option"
+          aria-disabled
+          className={clsx(buttonClasses, disabledClasses)}
+        >
+          {/* <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
-        </div>
-        Add To Cart
-      </button>
+        </div> */}
+          Add To Cart
+        </button>
+        <button className="border border-black bg-white">
+          <HeartIcon className="h-5" />
+        </button>
+      </>
     );
   }
 
   return (
-    <button
-      onClick={(e: React.FormEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-      }}
-      aria-label="Add to cart"
-      aria-disabled={pending}
-      className={clsx(buttonClasses, {
-        'hover:opacity-90': true,
-        [disabledClasses]: pending
-      })}
-    >
-      <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
-      </div>
-      Add To Cart
-    </button>
+    <div className="flex items-center gap-3">
+      <button
+        onClick={(e: React.FormEvent<HTMLButtonElement>) => {
+          if (pending) e.preventDefault();
+        }}
+        aria-label="Add to cart"
+        aria-disabled={pending}
+        className={clsx(buttonClasses, {
+          'hover:opacity-90': true,
+          [disabledClasses]: pending
+        })}
+      >
+        <div className="absolute left-0 ml-4">
+          {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+        </div>
+        Add To Cart
+      </button>
+      <button className="flex h-full w-fit items-center justify-center border border-black bg-white px-5 py-3">
+        <HeartIcon className="h-5" />
+      </button>
+    </div>
   );
 }
 
