@@ -4,12 +4,14 @@ import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import { Suspense } from 'react';
 import { VariantSelector } from './variant-selector';
+import ProductDetails from './product-details';
 
 export function ProductDescription({ product }: { product: Product }) {
+  console.log('product.description', product.description);
   return (
     <>
-      <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
+      <div className="mb-6 mt-8 flex flex-col border-b pb-6 dark:border-neutral-700">
+        <h1 className="mb-2 text-4xl font-medium uppercase">{product.title}</h1>
         <div className="mr-auto w-auto  p-2 text-lg font-medium text-black">
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
@@ -24,12 +26,17 @@ export function ProductDescription({ product }: { product: Product }) {
       <Suspense fallback={null}>
         <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
       </Suspense>
-      {product.descriptionHtml ? (
+
+      <Suspense fallback={null}>
+        <ProductDetails product={product} />
+      </Suspense>
+
+      {/* {product.descriptionHtml ? (
         <Prose
           className="mb-6 mt-20 text-sm leading-tight dark:text-white/[60%]"
           html={product.descriptionHtml}
         />
-      ) : null}
+      ) : null} */}
     </>
   );
 }
